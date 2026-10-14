@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Multiple Textarea Examples</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f5f7fb;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3a5f;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        button {
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #dbeafe;
+        }
+
+        button.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .code-panel {
+            background: white;
+            border: 1px solid #bfdbfe;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .code-panel h2 {
+            margin-top: 0;
+            color: #1e3a5f;
+        }
+
+        textarea {
+            width: 100%;
+            height: 250px;
+            box-sizing: border-box;
+            padding: 15px;
+            font-family: Consolas, monospace;
+            font-size: 16px;
+            line-height: 1.6;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            resize: vertical;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .button-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            body {
+                margin: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Text Examples</h1>
+
+    <div class="button-container">
+        <button onclick="showText(1)" id="btn1">Button 1</button>
+        <button onclick="showText(2)" id="btn2">Button 2</button>
+        <button onclick="showText(3)" id="btn3">Button 3</button>
+        <button onclick="showText(4)" id="btn4">Button 4</button>
+        <button onclick="showText(5)" id="btn5">Button 5</button>
+        <button onclick="showText(6)" id="btn6">Button 6</button>
+        <button onclick="showText(7)" id="btn7">Button 7</button>
+        <button onclick="showText(8)" id="btn8">Button 8</button>
+        <button onclick="showText(9)" id="btn9">Button 9</button>
+        <button onclick="showText(10)" id="btn10">Button 10</button>
+    </div>
+
+    <div class="code-panel">
+
+        <div id="panel1">
+            <h2>Pgm:1 String Handling</h2>
+            <textarea readonly>
+                
+<?php 
+ 
+$string = "Hello, World!"; 
+ 
+$greeting = $string . " Welcome to PHP string handling."; 
+echo "Concatenated String: " . $greeting . "<br>"; 
+ 
+$length = strlen($string); 
+echo "Length of the string: " . $length . "<br>"; 
+
+$reversed = strrev($string); 
+echo "Reversed String: " . $reversed . "<br>"; 
+ 
+$uppercase = strtoupper($string); 
+echo "Uppercase String: " . $uppercase . "<br>"; 
+ 
+$lowercase = strtolower($string); 
+echo "Lowercase String: " . $lowercase . "<br>"; 
+ 
+$substring = substr($string, 7, 5); 
+echo "Substring: " . $substring . "<br>"; 
+ 
+$replaced = str_replace("World", "PHP", $string); 
+echo "Replaced String: " . $replaced . "<br>"; 
+ 
+$contains = strpos($string, "World") !== false ? "Yes" : "No"; 
+echo "Contains 'World'? " . $contains . "<br>"; 
+ 
+$words = explode(" ", $string); 
+echo "Words in the string: "; 
+print_r($words); 
+?> 
+
+Output:
+
+Concatenated String: Hello, World! Welcome to PHP string handling.
+Length of the string: 13
+Reversed String: !dlroW ,olleH
+Uppercase String: HELLO, WORLD!
+Lowercase String: hello, world!
+Substring: World
+Replaced String: Hello, PHP!
+Contains 'World'? Yes
+Words in the string: Array ( [0] => Hello, [1] => World! )
+
+
+
+
+            </textarea>
+        </div>
+
+        <div id="panel2" class="hidden">
+            <h2>Pgm: 2 Associative Array</h2>
+            <textarea readonly>
+             
+<?php 
+
+$students = array( 
+array( 
+"name" => "Anshamini", 
+"roll_number" => "IT2023001", 
+"specialization" => "Network Security", 
+"email" => "anshamini@example.com" 
+), 
+array( 
+"name" => "Balaji", 
+"roll_number" => "IT2023003", 
+"specialization" => "Database Management", 
+"email" => "balaji@example.com" 
+), 
+array( 
+"name" => "Ebinezer", 
+"roll_number" => "IT2023007", 
+"specialization" => "Artificial Intelligence", 
+"email" => "ebinezer@example.com" 
+), 
+array( 
+"name" => "Ragavan", 
+"roll_number" => "IT2023016", 
+"specialization" => "Big Data Analysis", 
+"email" => "ragavan@example.com" 
+) 
+); 
+
+echo "<h2>Final Year MSC IT Students</h2>"; 
+foreach ($students as $student) { 
+echo "<h3>" . $student["name"] . "</h3>"; 
+echo "<ul>"; 
+echo "<li><strong>Roll Number:</strong> " . $student["roll_number"] . "</li>"; 
+echo "<li><strong>Specialization:</strong> " . $student["specialization"] . "</li>"; 
+echo "<li><strong>Email:</strong> <a href='mailto:" . $student["email"] . "'>" . 
+$student["email"] . "</a></li>"; 
+echo "</ul>"; 
+echo "<hr>"; 
+} 
+?> 
+
+Output:
+
+Final Year MSC IT Students
+
+Anshamini
+Roll Number: IT2023001
+Specialization: Network Security
+Email: anshamini@example.com
+
+Balaji
+Roll Number: IT2023003
+Specialization: Database Management
+Email: balaji@example.com
+
+Ebinezer
+Roll Number: IT2023007
+Specialization: Artificial Intelligence
+Email: ebinezer@example.com
+
+Ragavan
+Roll Number: IT2023016
+Specialization: Big Data Analysis
+Email: ragavan@example.com
+
+
+
+
+</textarea>
+        </div>
+
+        <div id="panel3" class="hidden">
+            <h2>Pgm: 3 Various Functions</h2>
+            <textarea readonly>
+               
+<?php 
+
+function add($a, $b) { 
+return $a + $b; 
+} 
+
+function greet() { 
+echo "Hello, World!<br>"; 
+} 
+
+function say($message = "Default message") { 
+echo $message . "<br>"; 
+} 
+
+function sum(...$numbers) { 
+$total = 0; 
+foreach ($numbers as $number) { 
+$total += $number; 
+} 
+return $total; 
+} 
+
+function increment() { 
+static $counter = 0; 
+$counter++; 
+
+echo "Counter: $counter<br>"; 
+} 
+
+function double(&$value) { 
+$value *= 2; 
+} 
+
+function factorial($n) { 
+if ($n <= 1) { 
+return 1; 
+} else { 
+return $n * factorial($n - 1); 
+} 
+} 
+
+function divide(float $a, float $b): float { 
+if ($b == 0) { 
+throw new Exception("Division by zero"); 
+} 
+return $a / $b; 
+} 
+
+echo "Addition result: " . add(5, 3) . "<br>";  
+greet();  
+say(); 
+say("Custom message"); 
+
+echo "Sum result: " . sum(1, 2, 3, 4, 5) . "<br>"; 
+increment(); 
+increment(); 
+$value = 10; 
+double($value); 
+echo "Doubled value: $value<br>"; 
+echo "Factorial of 5: " . factorial(5) . "<br>"; 
+try { 
+echo "Division result: " . divide(10.0, 2.0) . "<br>"; 
+echo "Division result: " . divide(5.0, 0.0) . "<br>"; 
+} catch (Exception $e) { 
+echo "Exception caught: " . $e->getMessage() . "<br>"; 
+} 
+?>
+
+Output:
+
+Addition result: 8
+Hello, World!
+Default message
+Custom message
+Sum result: 15
+Counter: 1
+Counter: 2
+Doubled value: 20
+Factorial of 5: 120
+Division result: 5
+Exception caught: Division by zero
+
+
+</textarea>
+        </div>
+
+        <div id="panel4" class="hidden">
+            <h2>Pgm: 4 Read from Data</h2>
+            <textarea readonly>
+
+<?php 
+
+$file = 'data.txt'; 
+
+if (file_exists($file) && is_readable($file)) { 
+
+$handle = fopen($file, 'r'); 
+ 
+if ($handle) { 
+echo "<h2>Reading Data from File</h2>"; 
+ 
+
+echo "<table border='1'>"; 
+echo "<tr><th>Name</th><th>Age</th><th>Email</th></tr>"; 
+ 
+
+while (($line = fgets($handle)) !== false) { 
+ 
+$parts = explode(',', $line); 
+
+$name = trim($parts[0]); 
+$age = trim($parts[1]); 
+$email = trim($parts[2]); 
+ 
+
+echo "<tr><td>$name</td><td>$age</td><td>$email</td></tr>"; 
+} 
+ 
+
+fclose($handle); 
+ 
+
+echo "</table>"; 
+} else { 
+echo "Error opening the file."; 
+} 
+} else { 
+echo "File not found or not readable."; 
+} 
+ 
+?> 
+
+Output:
+
+Reading Data from File
+
+Name	Age	Email
+
+Ann	22	ann@gmail.com
+Ragavan	23	ragavan@gmail.com
+Balaji	20	balaji@gmail.com
+
+
+            </textarea>
+        </div>
+
+        <div id="panel5" class="hidden">
+            <h2>Pgm: 5 Overloading & Overriding</h2>
+            <textarea readonly>
+<?php 
+
+class BaseClass { 
+
+public function showMessage() { 
+echo "This is the base class method.\n"; 
+} 
+ 
+
+public function __call($name, $arguments) {
+    echo "Method '$name' with arguments: "
+        . implode(', ', $arguments) . "\n";
+}
+} 
+ 
+
+class DerivedClass extends BaseClass { 
+
+public function showMessage() { 
+echo "This is the derived class method.\n"; 
+} 
+
+public function __call($name, $arguments) {
+    echo "DerivedClass: Method '$name' with arguments: "
+        . implode(', ', $arguments) . "\n";
+}
+} 
+ 
+ 
+$base = new BaseClass(); 
+$derived = new DerivedClass(); 
+ 
+
+$base->showMessage();  
+$derived->showMessage(); 
+ 
+
+$base->undefinedMethod('arg1', 'arg2');
+$derived->anotherUndefinedMethod('arg3', 'arg4'); 
+
+?> 
+
+Output:
+
+This is the base class method.
+This is the derived class method.
+Method 'undefinedMethod' with arguments: arg1, arg2 
+DerivedClass: Method 'anotherUndefinedMethod' with arguments: arg3, arg4
+
+
+            </textarea>
+        </div>
+
+        <div id="panel6" class="hidden">
+            <h2>Pgm: 6 Inheritance</h2>
+            <textarea readonly>
+
+<?php
+
+class Animal {
+    public $name;
+    public $sound;
+
+    
+    public function __construct($name, $sound) {
+        $this->name = $name;
+        $this->sound = $sound;
+    }
+
+    
+    public function makeSound() {
+        echo $this->name . " says " . $this->sound . "<br>";
+    }
+}
+
+
+class Dog extends Animal {
+    public function fetch() {
+        echo $this->name . " is fetching the ball!<br>";
+    }
+}
+
+
+class Cat extends Animal {
+    public function purr() {
+        echo $this->name . " is purring!<br>";
+    }
+}
+
+
+$dog = new Dog("Buddy", "Woof");
+$cat = new Cat("Whiskers", "Meow");
+
+
+$dog->makeSound();
+$cat->makeSound();
+
+
+$dog->fetch();
+$cat->purr();
+?>
+
+Output:
+
+Buddy says Woof
+Whiskers says Meow
+Buddy is fetching the ball!
+Whiskers is purring!
+
+
+            </textarea>
+        </div>
+
+        <div id="panel7" class="hidden">
+            <h2>Pgm: 7 File Handling</h2>
+            <textarea readonly>
+
+<?php 
+
+$file = 'example.txt'; 
+
+echo "<h2>Step 1: Create and Write to the File</h2>"; 
+$handle = fopen($file, 'w'); 
+if ($handle) { 
+$content = "Hello, this is a test file.\n"; 
+fwrite($handle, $content); 
+fclose($handle); 
+echo "File created and written successfully.<br>"; 
+} else { 
+echo "Unable to open the file for writing.<br>"; 
+} 
+
+
+echo "<h2>Step 2: Read from the File</h2>"; 
+$handle = fopen($file, 'r'); 
+if ($handle) { 
+$fileContent = fread($handle, filesize($file)); 
+fclose($handle); 
+echo "File content:<br>"; 
+echo nl2br(htmlspecialchars($fileContent)) . "<br>"; 
+} else { 
+echo "Unable to open the file for reading.<br>"; 
+} 
+ 
+
+echo "<h2>Step 3: Append to the File</h2>"; 
+ 
+$handle = fopen($file, 'a'); 
+if ($handle) { 
+$additionalContent = "This is additional content appended to the file.\n"; 
+fwrite($handle, $additionalContent); 
+fclose($handle); 
+echo "Content appended successfully.<br>"; 
+} else { 
+echo "Unable to open the file for appending.<br>"; 
+} 
+ 
+
+echo "<h2>Step 4: Read the File Again</h2>"; 
+ 
+$handle = fopen($file, 'r'); 
+if ($handle) { 
+$fileContent = fread($handle, filesize($file)); 
+fclose($handle); 
+echo "Updated file content:<br>"; 
+echo nl2br(htmlspecialchars($fileContent)) . "<br>"; 
+} else { 
+echo "Unable to open the file for reading.<br>"; 
+} 
+ 
+
+echo "<h2>Step 5: Delete the File</h2>"; 
+ 
+if (file_exists($file)) { 
+if (unlink($file)) { 
+echo "File deleted successfully."; 
+} else { 
+echo "Unable to delete the file."; 
+} 
+} else { 
+echo "File does not exist."; 
+} 
+?> 
+
+Output:
+
+Step 1: Create and Write to the File
+File created and written successfully.
+
+Step 2: Read from the File
+
+File content:
+Hello, this is a test file.
+
+Step 3: Append to the File
+Content appended successfully.
+
+Step 4: Read the File Again
+Updated file content:
+Hello, this is a test file.
+
+Step 5: Delete the File
+File deleted successfully.
+
+
+            </textarea>
+        </div>
+
+        <div id="panel8" class="hidden">
+            <h2>Pgm: 8  Database to Insert Delete List the records</h2>
+           <textarea readonly>
+
+<html>
+<body>
+<?php
+$con = mysqli_connect("localhost", "root", "arun123");
+
+if (!$con) {
+    die("Could not connect: " . mysqli_connect_error());
+}
+
+
+mysqli_query($con, "CREATE DATABASE IF NOT EXISTS my_db");
+
+
+mysqli_select_db($con, "my_db");
+
+
+$sql = "CREATE TABLE IF NOT EXISTS employee (
+    firstname VARCHAR(15),
+    lastname VARCHAR(15),
+    age INT
+)";
+mysqli_query($con, $sql);
+
+
+$check = mysqli_query($con, "SELECT COUNT(*) AS total FROM employee");
+$row = mysqli_fetch_assoc($check);
+
+if ($row['total'] == 0) {
+    mysqli_query($con, "INSERT INTO employee VALUES ('Ajay', 'Karan', 25)");
+    mysqli_query($con, "INSERT INTO employee VALUES ('Harshith', 'R', 18)");
+}
+
+
+$result = mysqli_query($con, "SELECT * FROM employee");
+
+while ($row = mysqli_fetch_assoc($result)) {
+    echo $row['firstname'] . " "
+       . $row['lastname'] . " "
+       . $row['age'] . "<br>";
+}
+
+mysqli_close($con);
+?>
+</body>
+</html>
+
+Output:
+
+Database Created
+Ajay Karan 25
+Harshith R 18
+            
+
+           </textarea>
+        </div>
+
+        <div id="panel9" class="hidden">
+            <h2>Pgm: 9 Cookies</h2>
+            <textarea readonly>
+
+<?php 
+
+$cookie_name = "user"; 
+$cookie_value = "John Doe"; 
+$cookie_expiry_time = time() + (86400 * 30);
+setcookie($cookie_name, $cookie_value, $cookie_expiry_time, "/");
+
+if (isset($_COOKIE[$cookie_name])) { 
+echo "Cookie named '" . $cookie_name . "' is set!<br>"; 
+echo "Value is: " . $_COOKIE[$cookie_name]; 
+} else { 
+echo "Cookie named '" . $cookie_name . "' is not set!"; 
+} 
+?> 
+
+Output:
+
+First time loading the page (before the cookie is set): 
+ 
+text 
+Copy code 
+Cookie named 'user' is not set! 
+ 
+After the page is reloaded (once the cookie is set): 
+text 
+Copy code 
+Cookie named 'user' is set! 
+Value is: John Doe 
+
+            </textarea>
+        </div>
+
+        <div id="panel10" class="hidden">
+            <h2>Pgm: 10 Drawing Images</h2>
+            <textarea readonly>
+
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+if (!extension_loaded('gd')) {
+    die('Error: PHP GD extension is not enabled.');
+}
+
+header('Content-Type: image/png');
+
+$image = imagecreatetruecolor(400, 400);
+
+$white = imagecolorallocate($image, 255, 255, 255);
+$blue  = imagecolorallocate($image, 0, 0, 255);
+$red   = imagecolorallocate($image, 255, 0, 0);
+
+imagefill($image, 0, 0, $white);
+
+imagefilledrectangle($image, 50, 50, 350, 150, $blue);
+
+imagefilledellipse($image, 200, 300, 200, 200, $red);
+
+imagepng($image);
+
+imagedestroy($image);
+exit;
+?>
+
+Output:
+
+(Image)
+
+
+            </textarea>
+        </div>
+
+    </div>
+
+    <script>
+        function showText(number) {
+
+            // Hide all 10 text areas
+            for (let i = 1; i <= 10; i++) {
+                document.getElementById("panel" + i)
+                    .classList.add("hidden");
+
+                document.getElementById("btn" + i)
+                    .classList.remove("active");
+            }
+
+            // Show only the selected text area
+            document.getElementById("panel" + number)
+                .classList.remove("hidden");
+
+            // Highlight the selected button
+            document.getElementById("btn" + number)
+                .classList.add("active");
+        }
+
+        // Show the first text area by default
+        showText(1);
+    </script>
+
+</body>
+</html>
